@@ -1,10 +1,7 @@
-#include <errno.h>
 #include <fcntl.h>
 #include <ncurses.h>
 #include <stdarg.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -12,9 +9,6 @@
 #include "game.h"
 #include "print.h"
 #include "random.h"
-
-#define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
-#define CTRLD         4
 
 int
 main(void)
@@ -28,7 +22,9 @@ main(void)
                 print_main_menu();
 
                 while (player_1_input < 1 || player_1_input > 5) {
+                        flushinp();
                         int ch = getch();
+                        flushinp();
                         if (ch >= '0' && ch <= '5') {
                                 char *cptr;
                                 player_1_input =
@@ -39,9 +35,9 @@ main(void)
                                 print_center_x(stdscr, line, 0,
                                                "Invalid selection...");
                                 print_center_x(stdscr, line + 1, 0,
-                                               "Press any key to continue.");
+                                               "Press any key to continue...");
                                 refresh();
-                                getch();
+                                pause_for_keyin();
                                 clear();
                                 print_main_menu();
                         }

@@ -1,0 +1,9 @@
+./cache/*
+./build/*
+./build
+./.cache
+.cache/clangd/index/game.h.9CA68EB33C510633.idx
+.cache/clangd/index/main.c.4652CC3C9647BF59.idx
+.cache/clangd/index/main.c.4652CC3C9647BF59.idx
+.cache/clangd/index
+build/linux/debug

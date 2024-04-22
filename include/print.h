@@ -13,6 +13,9 @@ void
 init_curses(void);
 
 void
+pause_for_keyin(void);
+
+void
 print_main_menu(void);
 
 void

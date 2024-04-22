@@ -3,12 +3,19 @@
 
 #include <stdarg.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
 
 char *choices[] = {"Rock", "Paper", "Scissors", "Show Scores", "Exit"};
+
+void
+pause_for_keyin(void)
+{
+        flushinp();
+        getch();
+        flushinp();
+}
 
 void
 init_curses(void)
@@ -48,7 +55,16 @@ print_center_x(WINDOW *win, int line, int x_offset, const char *str, ...)
         start_x  = (max_x / 2) - (strlen(str) / 2);
         start_x += x_offset;
         move(start_y, start_x);
-        vw_printw(win, str, args);
+        // vw_printw(win, str, args);
+        vsnprintf(buf, 255, str, args);
+        for (unsigned int i = 0; i < strlen(buf); i++) {
+                addch(buf[i]);
+                refresh();
+                struct timespec time_in, time_out;
+                time_in.tv_nsec = 15 * 1000000;
+                time_in.tv_sec  = 0;
+                nanosleep(&time_in, &time_out);
+        }
 }
 
 void
@@ -78,7 +94,5 @@ print_scores(void)
                        tie_percent);
         print_center_x(stdscr, line + 10, 0,
                        "Press any key to return to the main menu...");
-        refresh();
-        getch();
-        print_main_menu();
+        pause_for_keyin();
 }

@@ -22,7 +22,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         break;
                 case 2:
                         print_center_x(stdscr, line - 4, 0,
@@ -31,7 +31,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         player_score++;
                         break;
                 case 3:
@@ -41,7 +41,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         cpu_score++;
                         break;
                 default:
@@ -57,7 +57,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         cpu_score++;
                         break;
                 case 2:
@@ -66,7 +66,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         break;
                 case 3:
                         print_center_x(stdscr, line - 4, 0,
@@ -75,7 +75,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         player_score++;
                         break;
                 default:
@@ -91,7 +91,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         player_score++;
                         break;
                 case 2:
@@ -101,7 +101,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         cpu_score++;
                         break;
                 case 3:
@@ -111,7 +111,7 @@ play(int n, int r)
                         print_center_x(stdscr, line + 1, 0,
                                        "Press any key to continue...");
                         refresh();
-                        getch();
+                        pause_for_keyin();
                         break;
                 default:
                         break;
