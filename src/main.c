@@ -16,22 +16,22 @@ main(void)
         init_curses();
 
         while (1) {
-                unsigned int random_int     = urandom();
-                int          player_1_input = -1;
+                u_int32_t random_int     = urandom();
+                int8_t    player_1_input = -1;
 
                 print_main_menu();
 
                 while (player_1_input < 1 || player_1_input > 5) {
                         flushinp();
-                        int ch = getch();
+                        u_int8_t ch = getch();
                         flushinp();
                         if (ch >= '0' && ch <= '5') {
                                 char *cptr;
                                 player_1_input =
-                                        (int)strtol((char *)&ch, &cptr, 10);
+                                        (int8_t)strtol((char *)&ch, &cptr, 10);
                         } else {
                                 clear();
-                                int line = LINES / 2;
+                                u_int8_t line = LINES / 2;
                                 print_center_x(stdscr, line, 0,
                                                "Invalid selection...");
                                 print_center_x(stdscr, line + 1, 0,

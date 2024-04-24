@@ -1,13 +1,14 @@
 #ifndef MENUS_H
 #define MENUS_H
 #include <ncurses.h>
+#include <sys/types.h>
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 #define CTRLD         4
 
-extern int player_score;
-extern int cpu_score;
-extern int rounds_played;
+extern u_int16_t player_score;
+extern u_int16_t cpu_score;
+extern u_int16_t rounds_played;
 
 void
 init_curses(void);

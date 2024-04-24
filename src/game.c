@@ -1,16 +1,18 @@
 #include "game.h"
 
+#include <sys/types.h>
+
 #include "print.h"
 
-int player_score  = 0;
-int cpu_score     = 0;
-int rounds_played = 0;
+u_int16_t player_score  = 0;
+u_int16_t cpu_score     = 0;
+u_int16_t rounds_played = 0;
 
 void
 play(int n, int r)
 {
         rounds_played++;
-        int line = LINES / 2;
+        u_int16_t line = LINES / 2;
 
         clear();
         switch (r) {

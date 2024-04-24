@@ -4,6 +4,7 @@
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
 
@@ -47,8 +48,8 @@ print_center_x(WINDOW *win, int line, int x_offset, const char *str, ...)
         char    buf[256];
         va_list args;
         va_start(args, (char *));
-        int max_x;
-        int start_y, start_x;
+        u_int16_t max_x;
+        u_int16_t start_y, start_x;
         max_x    = getmaxx(win);
 
         start_y  = line;
@@ -57,7 +58,7 @@ print_center_x(WINDOW *win, int line, int x_offset, const char *str, ...)
         move(start_y, start_x);
         // vw_printw(win, str, args);
         vsnprintf(buf, 255, str, args);
-        for (unsigned int i = 0; i < strlen(buf); i++) {
+        for (u_int16_t i = 0; i < strlen(buf); i++) {
                 addch(buf[i]);
                 refresh();
                 struct timespec time_in, time_out;
